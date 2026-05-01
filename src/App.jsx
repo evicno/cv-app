@@ -22,8 +22,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div className="form">
+    <div className="main">
+      <div className="form-container">
         <PersonalForm
           personalInfo={personalInfo}
           onPersonalChange={handlePersonalUpdate}
@@ -31,7 +31,9 @@ function App() {
         <EducationForm />
         <ProfessionalForm />
       </div>
-      <Cv personalInfo={personalInfo} />
+      <div className="cv-container">
+        <Cv personalInfo={personalInfo} />
+      </div>
     </div>
   );
 }

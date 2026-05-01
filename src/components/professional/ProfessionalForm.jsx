@@ -41,7 +41,7 @@ function ProfessionalForm() {
           type={'textarea'}
           name="description"
           id="description"
-          screen="description"
+          screen="Description"
         />
       </ul>
       <div className="buttons">

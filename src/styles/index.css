@@ -86,3 +86,23 @@ h6 {
   --main-padding: 1.5rem;
   --card-radius: 8px;
 }
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src:
+    url('../assets/SourceSans3-Italic.woff2') format('woff2'),
+    url('../assets/SourceSans3-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src:
+    url('../assets/SourceSans3-Roman.woff2') format('woff2'),
+    url('../assets/SourceSans3-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

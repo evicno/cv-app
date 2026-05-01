@@ -182,3 +182,15 @@
     border-right-color: var(--border);
   }
 }
+
+.main {
+  font-family: 'Source Sans 3';
+  font-weight: 600;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: var(--light-primary-color);
+}
