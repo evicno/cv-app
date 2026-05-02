@@ -31,6 +31,14 @@ function PersonalForm({ personalInfo, onPersonalChange }) {
           onPersonalChange={onPersonalChange}
         />
         <InputField
+          type={'phone'}
+          name="phone"
+          id="phone"
+          screen="Téléphone"
+          personalInfo={personalInfo}
+          onPersonalChange={onPersonalChange}
+        />
+        <InputField
           type={'text'}
           name="address"
           id="address"

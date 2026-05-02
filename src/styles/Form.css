@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color: var(--dark-primary-color);
 }
 
 .general,
@@ -45,9 +46,11 @@ textarea {
   border-radius: 5px;
   border-width: 1px;
   padding-left: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 input[type='date'] {
+  color: var(--dark-primary-color);
   width: auto;
 }
 
@@ -60,4 +63,6 @@ button {
   border-radius: 5px;
   border-width: 1px;
   padding: 0 1rem;
+  color: var(--dark-primary-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

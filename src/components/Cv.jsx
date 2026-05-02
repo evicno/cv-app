@@ -3,7 +3,7 @@ import PersonalCv from './personal/PersonalCv';
 
 function Cv({ personalInfo }) {
   return (
-    <div>
+    <div className="personal-cv">
       <PersonalCv personalInfo={personalInfo} />
     </div>
   );
