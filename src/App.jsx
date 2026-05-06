@@ -6,6 +6,7 @@ import ProfessionalForm from './components/professional/ProfessionalForm.jsx';
 import Cv from './components/Cv.jsx';
 
 function App() {
+  // State variables for personal, education and professional data
   const [personalInfo, setPersonalInfo] = useState({
     firstName: '',
     lastName: '',
@@ -25,12 +26,25 @@ function App() {
     isVisible: true,
   });
 
+  const [professional, setProfessional] = useState([]);
+  const [currentProfession, setCurrentProfession] = useState({
+    company: '',
+    position: '',
+    jobStart: '',
+    jobEnd: '',
+    description: '',
+    jobLocation: '',
+    isVisible: true,
+  });
+
+  // Function to update personal data
   function handlePersonalUpdate(e) {
     const name = e.target.name;
     const value = e.target.value;
     setPersonalInfo({ ...personalInfo, [name]: value });
   }
 
+  // Functions related to Education data
   function handleCurrentEducation(e) {
     const name = e.target.name;
     const value = e.target.value;
@@ -63,6 +77,40 @@ function App() {
     setEducation(newEduc);
   }
 
+  // Functions related to Professional data
+  function handleCurrentProfession(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setCurrentProfession({ ...currentProfession, [name]: value });
+  }
+
+  function clearCurrentProfession() {
+    setCurrentProfession({
+      company: '',
+      position: '',
+      jobStart: '',
+      jobEnd: '',
+      description: '',
+      jobLocation: '',
+      isVisible: true,
+    });
+  }
+
+  function addNewProfession() {
+    setProfessional([
+      ...professional,
+      { ...currentProfession, id: crypto.randomUUID() },
+    ]);
+    clearCurrentProfession();
+  }
+
+  function toggleProfessionVisibility(id) {
+    const newProf = professional.map((prof) =>
+      prof.id === id ? { ...prof, isVisible: !prof.isVisible } : prof,
+    );
+    setProfessional(newProf);
+  }
+
   return (
     <div className="main">
       <div className="form-container">
@@ -75,13 +123,22 @@ function App() {
           clearCurrentEducation={clearCurrentEducation}
           toggleEducationVisibility={toggleEducationVisibility}
         />
-        <ProfessionalForm />
+        <ProfessionalForm
+          professional={professional}
+          currentProfession={currentProfession}
+          addProfession={handleCurrentProfession}
+          addNewProfession={addNewProfession}
+          clearCurrentProfession={clearCurrentProfession}
+          toggleProfessionVisibility={toggleProfessionVisibility}
+        />
       </div>
       <div className="cv-container">
         <Cv
           personalInfo={personalInfo}
           education={education}
           currentEducation={currentEducation}
+          professional={professional}
+          currentProfession={currentProfession}
         />
       </div>
     </div>

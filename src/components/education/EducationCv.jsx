@@ -1,7 +1,7 @@
 import '../../styles/Cv.css';
 
-import EducationCvItem from './EducationCvItem.jsx';
 import EducationCvList from './EducationCvList.jsx';
+import EducationCvItem from './EducationCvItem.jsx';
 
 function EducationCv({ education, currentEducation }) {
   return (

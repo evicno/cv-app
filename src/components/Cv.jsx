@@ -1,8 +1,18 @@
 import '../styles/Cv.css';
+
 import PersonalCv from './personal/PersonalCv';
 import EducationCv from './education/EducationCv';
+import ProfessionalCv from './professional/ProfessionalCv';
 
-function Cv({ personalInfo, education, currentEducation, addEducation }) {
+function Cv({
+  personalInfo,
+  education,
+  currentEducation,
+  addEducation,
+  professional,
+  currentProfession,
+  addProfession,
+}) {
   return (
     <>
       <div className="personal-cv">
@@ -13,6 +23,11 @@ function Cv({ personalInfo, education, currentEducation, addEducation }) {
           education={education}
           currentEducation={currentEducation}
           addEducation={addEducation}
+        />
+        <ProfessionalCv
+          professional={professional}
+          currentProfession={currentProfession}
+          addProfession={addProfession}
         />
       </div>
     </>

@@ -1,53 +1,49 @@
-import '../../styles/Form.css';
-import InputField from '../form/InputField';
-import Button from '../form/Button';
+import { useState } from 'react';
 
-function ProfessionalForm() {
+import '../../styles/Form.css';
+
+import AddProfessionalForm from './AddProfessionalForm';
+import Button from '../form/Button';
+import ProfessionalFormList from './ProfessionalFormList';
+
+function ProfessionalForm({
+  professional,
+  currentProfession,
+  addProfession,
+  addNewProfession,
+  clearCurrentProfession,
+  toggleProfessionVisibility,
+}) {
+  const [formDisabled, setFormDisabled] = useState(true);
+
+  function toggleForm() {
+    setFormDisabled(!formDisabled);
+  }
   return (
     <fieldset className="professional">
       <legend>Expériences Professionnelles</legend>
-      <ul>
-        <InputField
-          type={'text'}
-          name="company"
-          id="company"
-          screen="Entreprise"
+      <ProfessionalFormList
+        professional={professional}
+        toggleProfessionVisibility={toggleProfessionVisibility}
+      />
+      {formDisabled ? (
+        <div className="buttons">
+          <Button
+            type="button"
+            name="addProfession"
+            text="Ajouter une expérience professionnelle"
+            onClick={toggleForm}
+          />
+        </div>
+      ) : (
+        <AddProfessionalForm
+          addProfession={addProfession}
+          addNewProfession={addNewProfession}
+          currentProfession={currentProfession}
+          toggleForm={toggleForm}
+          clearCurrentProfession={clearCurrentProfession}
         />
-        <InputField
-          type={'text'}
-          name="position"
-          id="position"
-          screen="Fonction"
-        />
-        <InputField
-          type={'date'}
-          name="jobStart"
-          id="job-start"
-          screen="Date de début"
-        />
-        <InputField
-          type={'date'}
-          name="jobEnd"
-          id="job-end"
-          screen="Date de fin"
-        />
-        <InputField
-          type={'text'}
-          name="jobLocation"
-          id="job-location"
-          screen="Ville"
-        />
-        <InputField
-          type={'textarea'}
-          name="description"
-          id="description"
-          screen="Description"
-        />
-      </ul>
-      <div className="buttons">
-        <Button type="button" name="resetJob" text="Annuler" />
-        <Button type="submit" name="submitJob" text="Ajouter" />
-      </div>
+      )}
     </fieldset>
   );
 }
