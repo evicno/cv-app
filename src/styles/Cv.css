@@ -23,11 +23,11 @@
 
 .personal-cv h1 {
   text-align: center;
-  font-size: 6cqw;
+  font-size: 5cqw;
 }
 
 .personal-cv p {
-  font-size: 2.5cqw;
+  font-size: 2.75cqw;
 }
 
 .personal-cv img {
@@ -44,4 +44,23 @@
 .location {
   display: flex;
   flex-direction: column;
+}
+
+.experience-cv h1 {
+  font-size: 5cqw;
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: var(--dark-primary-color);
+}
+
+.formation {
+  padding: 2cqw 4cqw;
+  font-size: 2.5cqw;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  justify-items: start;
+}
+
+.school {
+  font-weight: 800;
 }

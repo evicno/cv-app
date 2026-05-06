@@ -1,42 +1,43 @@
+import { useState } from 'react';
+
 import '../../styles/Form.css';
-import InputField from '../form/InputField';
+
+import AddEducationForm from './AddEducationForm';
 import Button from '../form/Button';
 
-function EducationForm() {
+function EducationForm({
+  // education,
+  currentEducation,
+  addEducation,
+  addNewEducation,
+  clearCurrentEducation,
+}) {
+  const [formDisabled, setFormDisabled] = useState(true);
+
+  function toggleForm() {
+    setFormDisabled(!formDisabled);
+  }
+
   return (
     <fieldset className="education">
-      <legend>Formation</legend>
-      <ul>
-        <InputField
-          type={'text'}
-          name="school"
-          id="school"
-          screen="Établissement"
+      <legend>Formations</legend>
+      {formDisabled ? (
+        <div className="buttons">
+          <Button
+            name="addEducation"
+            text="Ajouter une formation"
+            onClick={toggleForm}
+          />
+        </div>
+      ) : (
+        <AddEducationForm
+          addEducation={addEducation}
+          addNewEducation={addNewEducation}
+          currentEducation={currentEducation}
+          toggleForm={toggleForm}
+          clearCurrentEducation={clearCurrentEducation}
         />
-        <InputField type={'text'} name="degree" id="degree" screen="Diplôme" />
-        <InputField
-          type={'date'}
-          name="schoolStart"
-          id="school-start"
-          screen="Date de début"
-        />
-        <InputField
-          type={'date'}
-          name="schoolEnd"
-          id="school-end"
-          screen="Date de fin"
-        />
-        <InputField
-          type={'text'}
-          name="location"
-          id="location"
-          screen="Ville"
-        />
-      </ul>
-      <div className="buttons">
-        <Button type="reset" name="resetEducation" text="Annuler" />
-        <Button type="submit" name="submitEducation" text="Ajouter" />
-      </div>
+      )}
     </fieldset>
   );
 }

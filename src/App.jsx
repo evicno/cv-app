@@ -15,24 +15,64 @@ function App() {
     city: '',
   });
 
+  const [education, setEducation] = useState([]);
+  const [currentEducation, setCurrentEducation] = useState({
+    school: '',
+    degree: '',
+    schoolStart: '',
+    schoolEnd: '',
+    location: '',
+  });
+
   function handlePersonalUpdate(e) {
     const name = e.target.name;
     const value = e.target.value;
     setPersonalInfo({ ...personalInfo, [name]: value });
   }
 
+  function handleCurrentEducation(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setCurrentEducation({ ...currentEducation, [name]: value });
+  }
+
+  function clearCurrentEducation() {
+    setCurrentEducation({
+      school: '',
+      degree: '',
+      schoolStart: '',
+      schoolEnd: '',
+      location: '',
+    });
+  }
+
+  function addNewEducation() {
+    setEducation([
+      ...education,
+      { ...currentEducation, id: crypto.randomUUID() },
+    ]);
+    clearCurrentEducation();
+  }
+
   return (
     <div className="main">
       <div className="form-container">
-        <PersonalForm
-          personalInfo={personalInfo}
-          onPersonalChange={handlePersonalUpdate}
+        <PersonalForm onPersonalChange={handlePersonalUpdate} />
+        <EducationForm
+          education={education}
+          currentEducation={currentEducation}
+          addEducation={handleCurrentEducation}
+          addNewEducation={addNewEducation}
+          clearCurrentEducation={clearCurrentEducation}
         />
-        <EducationForm />
         <ProfessionalForm />
       </div>
       <div className="cv-container">
-        <Cv personalInfo={personalInfo} />
+        <Cv
+          personalInfo={personalInfo}
+          education={education}
+          currentEducation={currentEducation}
+        />
       </div>
     </div>
   );

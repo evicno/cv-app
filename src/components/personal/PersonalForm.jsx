@@ -1,7 +1,7 @@
 import '../../styles/Form.css';
 import InputField from '../form/InputField';
 
-function PersonalForm({ personalInfo, onPersonalChange }) {
+function PersonalForm({ onPersonalChange }) {
   return (
     <fieldset className="general">
       <legend>Information Personnelles</legend>
@@ -11,56 +11,49 @@ function PersonalForm({ personalInfo, onPersonalChange }) {
           name="firstName"
           id="first-name"
           screen="Prénom"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'text'}
           name="lastName"
-          id="last-,ame"
+          id="last-name"
           screen="Nom"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'email'}
           name="email"
           id="email"
           screen="Email"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'phone'}
           name="phone"
           id="phone"
           screen="Téléphone"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'text'}
           name="address"
           id="address"
           screen="Adresse"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'phone'}
           name="zip"
           id="zip"
           screen="Code Postal"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
         <InputField
           type={'text'}
           name="city"
           id="city"
           screen="Ville"
-          personalInfo={personalInfo}
-          onPersonalChange={onPersonalChange}
+          onChange={onPersonalChange}
         />
       </ul>
     </fieldset>

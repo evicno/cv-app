@@ -9,7 +9,7 @@ function InputField(props) {
           id={props.id}
           name={props.name}
           value={props.value}
-          onChange={props.onPersonalChange}
+          onChange={props.onChange}
         />
       ) : (
         <input
@@ -17,7 +17,7 @@ function InputField(props) {
           id={props.id}
           name={props.name}
           value={props.value}
-          onChange={props.onPersonalChange}
+          onChange={props.onChange}
         />
       )}
     </li>
