@@ -68,3 +68,22 @@ button {
   color: var(--dark-primary-color);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+
+.formation-item {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--dark-primary-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: white;
+  line-height: 0.9;
+}
+
+.formation-titles[data-visible='false'] {
+  opacity: 0.6;
+}
+
+.visible {
+  cursor: pointer;
+}

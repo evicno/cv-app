@@ -1,7 +1,7 @@
 import '../../styles/Cv.css';
 
-import EducationItem from './EducationItem.jsx';
-import EducationList from './EducationList.jsx';
+import EducationCvItem from './EducationCvItem.jsx';
+import EducationCvList from './EducationCvList.jsx';
 
 function EducationCv({ education, currentEducation }) {
   return (
@@ -9,8 +9,8 @@ function EducationCv({ education, currentEducation }) {
       {(education.length > 0 ||
         currentEducation.school.trim() ||
         currentEducation.degree.trim()) && <h1>Formations</h1>}
-      <EducationList education={education} />
-      <EducationItem data={currentEducation} />
+      <EducationCvList education={education} />
+      <EducationCvItem data={currentEducation} />
     </>
   );
 }

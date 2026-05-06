@@ -67,7 +67,7 @@ function AddEducationForm({
       </div>
       <div className="buttons">
         <Button
-          type="reset"
+          type="button"
           name="resetEducation"
           text="Annuler"
           onClick={resetForm}

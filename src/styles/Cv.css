@@ -54,7 +54,7 @@
 }
 
 .formation {
-  padding: 2cqw 4cqw;
+  padding: 2cqw 4cqw 0 4cqw;
   font-size: 2.5cqw;
   display: grid;
   grid-template-columns: 30% 1fr;

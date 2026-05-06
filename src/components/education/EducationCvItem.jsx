@@ -2,9 +2,10 @@ import '../../styles/Cv.css';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
-function EducationItem({ data }) {
+function EducationCvItem({ data }) {
   const startDate = data.schoolStart;
   const endDate = data.schoolEnd;
+
   return (
     <div className="formation">
       <div className="date">
@@ -24,4 +25,4 @@ function EducationItem({ data }) {
   );
 }
 
-export default EducationItem;
+export default EducationCvItem;

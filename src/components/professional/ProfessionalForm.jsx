@@ -45,7 +45,7 @@ function ProfessionalForm() {
         />
       </ul>
       <div className="buttons">
-        <Button type="reset" name="resetJob" text="Annuler" />
+        <Button type="button" name="resetJob" text="Annuler" />
         <Button type="submit" name="submitJob" text="Ajouter" />
       </div>
     </fieldset>

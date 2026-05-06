@@ -22,6 +22,7 @@ function App() {
     schoolStart: '',
     schoolEnd: '',
     location: '',
+    isVisible: true,
   });
 
   function handlePersonalUpdate(e) {
@@ -43,6 +44,7 @@ function App() {
       schoolStart: '',
       schoolEnd: '',
       location: '',
+      isVisible: true,
     });
   }
 
@@ -52,6 +54,13 @@ function App() {
       { ...currentEducation, id: crypto.randomUUID() },
     ]);
     clearCurrentEducation();
+  }
+
+  function toggleEducationVisibility(id) {
+    const newEduc = education.map((educ) =>
+      educ.id === id ? { ...educ, isVisible: !educ.isVisible } : educ,
+    );
+    setEducation(newEduc);
   }
 
   return (
@@ -64,6 +73,7 @@ function App() {
           addEducation={handleCurrentEducation}
           addNewEducation={addNewEducation}
           clearCurrentEducation={clearCurrentEducation}
+          toggleEducationVisibility={toggleEducationVisibility}
         />
         <ProfessionalForm />
       </div>
