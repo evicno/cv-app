@@ -22,19 +22,21 @@ function ProfessionalForm({
   return (
     <fieldset className="professional">
       <legend>Expériences Professionnelles</legend>
-      <ProfessionalFormList
-        professional={professional}
-        toggleProfessionVisibility={toggleProfessionVisibility}
-      />
       {formDisabled ? (
-        <div className="buttons">
-          <Button
-            type="button"
-            name="addProfession"
-            text="Ajouter une expérience professionnelle"
-            onClick={toggleForm}
+        <>
+          <ProfessionalFormList
+            professional={professional}
+            toggleProfessionVisibility={toggleProfessionVisibility}
           />
-        </div>
+          <div className="buttons">
+            <Button
+              type="button"
+              name="addProfession"
+              text="Ajouter une expérience professionnelle"
+              onClick={toggleForm}
+            />
+          </div>
+        </>
       ) : (
         <AddProfessionalForm
           addProfession={addProfession}

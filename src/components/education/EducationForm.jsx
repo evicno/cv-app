@@ -23,19 +23,22 @@ function EducationForm({
   return (
     <fieldset className="education">
       <legend>Formations</legend>
-      <EducationFormList
-        education={education}
-        toggleEducationVisibility={toggleEducationVisibility}
-      />
+
       {formDisabled ? (
-        <div className="buttons">
-          <Button
-            type="button"
-            name="addEducation"
-            text="Ajouter une formation"
-            onClick={toggleForm}
+        <>
+          <EducationFormList
+            education={education}
+            toggleEducationVisibility={toggleEducationVisibility}
           />
-        </div>
+          <div className="buttons">
+            <Button
+              type="button"
+              name="addEducation"
+              text="Ajouter une formation"
+              onClick={toggleForm}
+            />
+          </div>
+        </>
       ) : (
         <AddEducationForm
           addEducation={addEducation}
