@@ -69,7 +69,8 @@ button {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.formation-item {
+.formation-item,
+.profession-item {
   display: flex;
   justify-content: space-between;
   border: 1px solid var(--dark-primary-color);
@@ -80,7 +81,8 @@ button {
   line-height: 0.9;
 }
 
-.formation-titles[data-visible='false'] {
+.formation-titles[data-visible='false'],
+.profession-titles[data-visible='false'] {
   opacity: 0.6;
 }
 
