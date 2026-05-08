@@ -77,6 +77,13 @@ function App() {
     setEducation(newEduc);
   }
 
+  function editEducation() {}
+
+  function deleteEducation(id) {
+    const newEduc = education.filter((educ) => educ.id != id);
+    setEducation(newEduc);
+  }
+
   // Functions related to Professional data
   function handleCurrentProfession(e) {
     const name = e.target.name;
@@ -122,6 +129,8 @@ function App() {
           addNewEducation={addNewEducation}
           clearCurrentEducation={clearCurrentEducation}
           toggleEducationVisibility={toggleEducationVisibility}
+          editEducation={editEducation}
+          deleteEducation={deleteEducation}
         />
         <ProfessionalForm
           professional={professional}

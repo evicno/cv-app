@@ -13,6 +13,8 @@ function EducationForm({
   addNewEducation,
   clearCurrentEducation,
   toggleEducationVisibility,
+  editEducation,
+  deleteEducation,
 }) {
   const [formDisabled, setFormDisabled] = useState(true);
 
@@ -29,6 +31,8 @@ function EducationForm({
           <EducationFormList
             education={education}
             toggleEducationVisibility={toggleEducationVisibility}
+            editEducation={editEducation}
+            deleteEducation={deleteEducation}
           />
           <div className="buttons">
             <Button

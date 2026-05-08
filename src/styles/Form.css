@@ -40,6 +40,9 @@ li {
   justify-content: space-between;
 }
 
+button:hover {
+  cursor: pointer;
+}
 input,
 textarea {
   height: 1.25 rem;
@@ -69,10 +72,16 @@ button {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.formation-item,
+.formation-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.formation-content,
 .profession-item {
   display: flex;
   justify-content: space-between;
+  flex-grow: 1;
   border: 1px solid var(--dark-primary-color);
   border-radius: 5px;
   padding: 0.5rem;
@@ -88,4 +97,11 @@ button {
 
 .visible {
   cursor: pointer;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8rem;
 }
