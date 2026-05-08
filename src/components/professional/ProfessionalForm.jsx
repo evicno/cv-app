@@ -13,6 +13,8 @@ function ProfessionalForm({
   addNewProfession,
   clearCurrentProfession,
   toggleProfessionVisibility,
+  editProfession,
+  deleteProfession,
 }) {
   const [formDisabled, setFormDisabled] = useState(true);
 
@@ -27,6 +29,8 @@ function ProfessionalForm({
           <ProfessionalFormList
             professional={professional}
             toggleProfessionVisibility={toggleProfessionVisibility}
+            editProfession={editProfession}
+            deleteProfession={deleteProfession}
           />
           <div className="buttons">
             <Button

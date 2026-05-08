@@ -77,7 +77,11 @@ function App() {
     setEducation(newEduc);
   }
 
-  function editEducation() {}
+  function editEducation(id) {
+    // let educToEdit = education.filter((educ) => educ.id === id);
+    // const index = education.indexOf(educToEdit);
+    // setCurrentEducation(educToEdit);
+  }
 
   function deleteEducation(id) {
     const newEduc = education.filter((educ) => educ.id != id);
@@ -118,6 +122,13 @@ function App() {
     setProfessional(newProf);
   }
 
+  function editProfession() {}
+
+  function deleteProfession(id) {
+    const newProf = professional.filter((prof) => prof.id != id);
+    setProfessional(newProf);
+  }
+
   return (
     <div className="main">
       <div className="form-container">
@@ -139,6 +150,8 @@ function App() {
           addNewProfession={addNewProfession}
           clearCurrentProfession={clearCurrentProfession}
           toggleProfessionVisibility={toggleProfessionVisibility}
+          editProfession={editProfession}
+          deleteProfession={deleteProfession}
         />
       </div>
       <div className="cv-container">
