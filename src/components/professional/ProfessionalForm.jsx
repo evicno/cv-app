@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import '../../styles/Form.css';
 
 import AddProfessionalForm from './AddProfessionalForm';
@@ -11,20 +9,20 @@ function ProfessionalForm({
   currentProfession,
   addProfession,
   addNewProfession,
+  toggleProfForm,
+  profFormDisabled,
   clearCurrentProfession,
   toggleProfessionVisibility,
   editProfession,
+  editingProfId,
+  setEditingProfId,
+  submitEditProfession,
   deleteProfession,
 }) {
-  const [formDisabled, setFormDisabled] = useState(true);
-
-  function toggleForm() {
-    setFormDisabled(!formDisabled);
-  }
   return (
     <fieldset className="professional">
       <legend>Expériences Professionnelles</legend>
-      {formDisabled ? (
+      {profFormDisabled ? (
         <>
           <ProfessionalFormList
             professional={professional}
@@ -37,7 +35,7 @@ function ProfessionalForm({
               type="button"
               name="addProfession"
               text="Ajouter une expérience professionnelle"
-              onClick={toggleForm}
+              onClick={toggleProfForm}
             />
           </div>
         </>
@@ -46,7 +44,11 @@ function ProfessionalForm({
           addProfession={addProfession}
           addNewProfession={addNewProfession}
           currentProfession={currentProfession}
-          toggleForm={toggleForm}
+          toggleProfForm={toggleProfForm}
+          profFormDisabled={profFormDisabled}
+          editingProfId={editingProfId}
+          setEditingProfId={setEditingProfId}
+          submitEditProfession={submitEditProfession}
           clearCurrentProfession={clearCurrentProfession}
         />
       )}

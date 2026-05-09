@@ -12,6 +12,7 @@ function Cv({
   addEducation,
   professional,
   currentProfession,
+  editingProfId,
   addProfession,
 }) {
   return (
@@ -29,6 +30,7 @@ function Cv({
         <ProfessionalCv
           professional={professional}
           currentProfession={currentProfession}
+          editingProfId={editingProfId}
           addProfession={addProfession}
         />
       </div>

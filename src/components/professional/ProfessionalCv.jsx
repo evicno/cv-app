@@ -3,7 +3,7 @@ import '../../styles/Cv.css';
 import ProfessionalCvList from './ProfessionalCvList';
 import ProfessionalCvItem from './ProfessionalCvItem';
 
-function ProfessionalCv({ professional, currentProfession }) {
+function ProfessionalCv({ professional, currentProfession, editingProfId }) {
   return (
     <>
       {(professional.length > 0 ||
@@ -11,8 +11,12 @@ function ProfessionalCv({ professional, currentProfession }) {
         currentProfession.position.trim()) && (
         <h1>Expériences Professionnelles</h1>
       )}
-      <ProfessionalCvList professional={professional} />
-      <ProfessionalCvItem data={currentProfession} />
+      <ProfessionalCvList
+        professional={professional}
+        editingProfId={editingProfId}
+        currentProfession={currentProfession}
+      />
+      {!editingProfId ? <ProfessionalCvItem data={currentProfession} /> : null}
     </>
   );
 }

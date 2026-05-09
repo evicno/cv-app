@@ -7,17 +7,26 @@ function AddProfessionalForm({
   currentProfession,
   addProfession,
   addNewProfession,
-  toggleForm,
+  toggleProfForm,
+  editingProfId,
+  setEditingProfId,
+  submitEditProfession,
   clearCurrentProfession,
 }) {
   function resetForm() {
-    toggleForm();
+    toggleProfForm();
     clearCurrentProfession();
+    setEditingProfId(null);
   }
 
   function addNewProfessionAndReset() {
     addNewProfession();
     resetForm();
+  }
+
+  function submitEditProfessionAndReset() {
+    submitEditProfession();
+    toggleProfForm();
   }
   return (
     <>
@@ -76,15 +85,19 @@ function AddProfessionalForm({
       <div className="buttons">
         <Button
           type="button"
-          name="resetJob"
+          name={editingProfId ? 'cancelEditProfession' : 'resetProfession'}
           text="Annuler"
           onClick={resetForm}
         />
         <Button
           type="submit"
-          name="submitJob"
-          text="Ajouter"
-          onClick={addNewProfessionAndReset}
+          name={editingProfId ? 'submitEditProfession' : 'submitProfession'}
+          text={editingProfId ? 'Enregistrer' : 'Ajouter'}
+          onClick={
+            editingProfId
+              ? submitEditProfessionAndReset
+              : addNewProfessionAndReset
+          }
         />
       </div>
     </>

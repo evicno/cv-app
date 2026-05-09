@@ -28,13 +28,13 @@ function EducationFormItem({
       <div className="form-buttons">
         <Button
           type="button"
-          name="personal-edit"
+          name="education-edit"
           text="Éditer"
           onClick={() => editEducation(data.id)}
         />
         <Button
           type="button"
-          name="personal-delete"
+          name="education-delete"
           text="Supprimer"
           onClick={() => deleteEducation(data.id)}
         />

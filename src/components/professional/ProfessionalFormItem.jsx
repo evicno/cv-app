@@ -27,13 +27,13 @@ function ProfessionalFormItem({
       <div className="form-buttons">
         <Button
           type="button"
-          name="personal-edit"
+          name="profession-edit"
           text="Éditer"
           onClick={() => editProfession(data.id)}
         />
         <Button
           type="button"
-          name="personal-delete"
+          name="profession-delete"
           text="Supprimer"
           onClick={() => deleteProfession(data.id)}
         />

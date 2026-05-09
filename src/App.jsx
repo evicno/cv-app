@@ -26,7 +26,6 @@ function App() {
     isVisible: true,
   });
   const [educFormDisabled, setEducFormDisabled] = useState(true);
-
   const [editingEducId, setEditingEducId] = useState(null);
 
   const [professional, setProfessional] = useState([]);
@@ -39,6 +38,8 @@ function App() {
     jobLocation: '',
     isVisible: true,
   });
+  const [profFormDisabled, setProfFormDisabled] = useState(true);
+  const [editingProfId, setEditingProfId] = useState(null);
 
   // Function to update personal data
   function handlePersonalUpdate(e) {
@@ -132,6 +133,10 @@ function App() {
     clearCurrentProfession();
   }
 
+  function toggleProfForm() {
+    setProfFormDisabled(!profFormDisabled);
+  }
+
   function toggleProfessionVisibility(id) {
     const newProf = professional.map((prof) =>
       prof.id === id ? { ...prof, isVisible: !prof.isVisible } : prof,
@@ -139,7 +144,21 @@ function App() {
     setProfessional(newProf);
   }
 
-  function editProfession() {}
+  function editProfession(id) {
+    const profToEdit = professional.find((prof) => prof.id === id);
+    setCurrentProfession(profToEdit);
+    setEditingProfId(id);
+    toggleProfForm();
+  }
+
+  function submitEditProfession() {
+    const profToEdit = professional.map((prof) =>
+      prof.id === editingProfId ? currentProfession : prof,
+    );
+    setProfessional(profToEdit);
+    clearCurrentProfession();
+    setEditingProfId(null);
+  }
 
   function deleteProfession(id) {
     const newProf = professional.filter((prof) => prof.id != id);
@@ -168,11 +187,16 @@ function App() {
         <ProfessionalForm
           professional={professional}
           currentProfession={currentProfession}
+          toggleProfForm={toggleProfForm}
+          profFormDisabled={profFormDisabled}
           addProfession={handleCurrentProfession}
           addNewProfession={addNewProfession}
           clearCurrentProfession={clearCurrentProfession}
           toggleProfessionVisibility={toggleProfessionVisibility}
           editProfession={editProfession}
+          editingProfId={editingProfId}
+          setEditingProfId={setEditingProfId}
+          submitEditProfession={submitEditProfession}
           deleteProfession={deleteProfession}
         />
       </div>
@@ -184,6 +208,7 @@ function App() {
           editingEducId={editingEducId}
           professional={professional}
           currentProfession={currentProfession}
+          editingProfId={editingProfId}
         />
       </div>
     </div>
