@@ -1,16 +1,33 @@
-# React + Vite
+# CV Application - React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic and interactive CV builder built with **React**. This project was developed as part of the **The Odin Project** curriculum to master state management, form handling, and component architecture.
 
-Currently, two official plugins are available:
+[live demo](https://evicno-cv-app.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![preview](./src/assets/screenshot.png)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Based on the project requirements, this application allows users to:
 
-## Expanding the ESLint configuration
+- **General Information**: Input name, email, phone number and address.
+- **Educational Experience**: Add multiple degrees, edit them in real-time, or remove them.
+- **Practical Experience**: Add, edit, and delete professional experiences.
+- **Interactive Preview**: A live CV preview that updates instantly as you type.
+- **Responsive Design**: Optimized for desktop, tablet, and mobile.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies and concepts used
+
+- **Functional Components & Hooks**: Heavily utilized `useState` for managing complex form data.
+- **State Lifting**: Managed the global CV state at the parent level to synchronize the editor and the preview.
+- **Dynamic Rendering**
+
+* **Deployment**: Hosted on **Netlify** with continuous deployment.
+
+## 💡 Key Challenges & Learnings
+
+The most challenging part was implementing the **in-place editing** functionality. I learned how to:
+
+- Target a specific item using a unique ID (`editingEducId`).
+- Temporarily replace a static list item with an active "preview" component in the CV display.
+- Debug prop drilling and data structures using **React DevTools**, which was crucial in identifying nested object errors.
