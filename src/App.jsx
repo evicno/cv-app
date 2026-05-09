@@ -25,6 +25,9 @@ function App() {
     location: '',
     isVisible: true,
   });
+  const [educFormDisabled, setEducFormDisabled] = useState(true);
+
+  const [editingEducId, setEditingEducId] = useState(null);
 
   const [professional, setProfessional] = useState([]);
   const [currentProfession, setCurrentProfession] = useState({
@@ -70,6 +73,10 @@ function App() {
     clearCurrentEducation();
   }
 
+  function toggleEducForm() {
+    setEducFormDisabled(!educFormDisabled);
+  }
+
   function toggleEducationVisibility(id) {
     const newEduc = education.map((educ) =>
       educ.id === id ? { ...educ, isVisible: !educ.isVisible } : educ,
@@ -78,9 +85,19 @@ function App() {
   }
 
   function editEducation(id) {
-    // let educToEdit = education.filter((educ) => educ.id === id);
-    // const index = education.indexOf(educToEdit);
-    // setCurrentEducation(educToEdit);
+    const educToEdit = education.find((educ) => educ.id === id);
+    setCurrentEducation(educToEdit);
+    setEditingEducId(id);
+    toggleEducForm();
+  }
+
+  function submitEditEducation() {
+    const educToEdit = education.map((educ) =>
+      educ.id === editingEducId ? currentEducation : educ,
+    );
+    setEducation(educToEdit);
+    clearCurrentEducation();
+    setEditingEducId(null);
   }
 
   function deleteEducation(id) {
@@ -136,11 +153,16 @@ function App() {
         <EducationForm
           education={education}
           currentEducation={currentEducation}
+          toggleEducForm={toggleEducForm}
+          educFormDisabled={educFormDisabled}
           addEducation={handleCurrentEducation}
           addNewEducation={addNewEducation}
           clearCurrentEducation={clearCurrentEducation}
           toggleEducationVisibility={toggleEducationVisibility}
           editEducation={editEducation}
+          editingEducId={editingEducId}
+          setEditingEducId={setEditingEducId}
+          submitEditEducation={submitEditEducation}
           deleteEducation={deleteEducation}
         />
         <ProfessionalForm
@@ -159,6 +181,7 @@ function App() {
           personalInfo={personalInfo}
           education={education}
           currentEducation={currentEducation}
+          editingEducId={editingEducId}
           professional={professional}
           currentProfession={currentProfession}
         />

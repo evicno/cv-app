@@ -7,17 +7,26 @@ function AddEducationForm({
   currentEducation,
   addEducation,
   addNewEducation,
-  toggleForm,
+  toggleEducForm,
+  editingEducId,
+  setEditingEducId,
+  submitEditEducation,
   clearCurrentEducation,
 }) {
   function resetForm() {
-    toggleForm();
+    toggleEducForm();
     clearCurrentEducation();
+    setEditingEducId(null);
   }
 
   function addNewEducationAndReset() {
     addNewEducation();
     resetForm();
+  }
+
+  function submitEditEducationAndReset() {
+    submitEditEducation();
+    toggleEducForm();
   }
   return (
     <>
@@ -68,15 +77,19 @@ function AddEducationForm({
       <div className="buttons">
         <Button
           type="button"
-          name="resetEducation"
+          name={editingEducId ? 'cancelEditEducation' : 'resetEducation'}
           text="Annuler"
           onClick={resetForm}
         />
         <Button
           type="submit"
-          name="submitEducation"
-          text="Ajouter"
-          onClick={addNewEducationAndReset}
+          name={editingEducId ? 'submitEditEducation' : 'submitEducation'}
+          text={editingEducId ? 'Enregistrer' : 'Ajouter'}
+          onClick={
+            editingEducId
+              ? submitEditEducationAndReset
+              : addNewEducationAndReset
+          }
         />
       </div>
     </>

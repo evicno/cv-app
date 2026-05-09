@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import '../../styles/Form.css';
 
 import AddEducationForm from './AddEducationForm';
@@ -11,22 +9,21 @@ function EducationForm({
   currentEducation,
   addEducation,
   addNewEducation,
+  toggleEducForm,
+  educFormDisabled,
   clearCurrentEducation,
   toggleEducationVisibility,
   editEducation,
+  editingEducId,
+  setEditingEducId,
+  submitEditEducation,
   deleteEducation,
 }) {
-  const [formDisabled, setFormDisabled] = useState(true);
-
-  function toggleForm() {
-    setFormDisabled(!formDisabled);
-  }
-
   return (
     <fieldset className="education">
       <legend>Formations</legend>
 
-      {formDisabled ? (
+      {educFormDisabled ? (
         <>
           <EducationFormList
             education={education}
@@ -39,7 +36,7 @@ function EducationForm({
               type="button"
               name="addEducation"
               text="Ajouter une formation"
-              onClick={toggleForm}
+              onClick={toggleEducForm}
             />
           </div>
         </>
@@ -48,7 +45,11 @@ function EducationForm({
           addEducation={addEducation}
           addNewEducation={addNewEducation}
           currentEducation={currentEducation}
-          toggleForm={toggleForm}
+          toggleEducForm={toggleEducForm}
+          educFormDisabled={educFormDisabled}
+          editingEducId={editingEducId}
+          setEditingEducId={setEditingEducId}
+          submitEditEducation={submitEditEducation}
           clearCurrentEducation={clearCurrentEducation}
         />
       )}

@@ -8,6 +8,7 @@ function Cv({
   personalInfo,
   education,
   currentEducation,
+  editingEducId,
   addEducation,
   professional,
   currentProfession,
@@ -22,6 +23,7 @@ function Cv({
         <EducationCv
           education={education}
           currentEducation={currentEducation}
+          editingEducId={editingEducId}
           addEducation={addEducation}
         />
         <ProfessionalCv
