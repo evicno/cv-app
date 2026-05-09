@@ -75,6 +75,7 @@ button {
 .formation-item,
 .profession-item {
   display: flex;
+  height: 3rem;
   gap: 1rem;
 }
 
@@ -82,6 +83,7 @@ button {
 .profession-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-grow: 1;
   border: 1px solid var(--dark-primary-color);
   border-radius: 5px;
@@ -118,5 +120,18 @@ button {
   li {
     display: flex;
     gap: 1rem;
+  }
+  .formation-item,
+  .profession-item {
+    height: 3.75rem;
+    justify-content: center;
+  }
+
+  .formation-content {
+    line-height: 1.2;
+    max-width: 13rem;
+  }
+  .form-buttons {
+    font-size: 1rem;
   }
 }
