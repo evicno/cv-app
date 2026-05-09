@@ -24,7 +24,7 @@ Based on the project requirements, this application allows users to:
 
 * **Deployment**: Hosted on **Netlify** with continuous deployment.
 
-## 💡 Key Challenges & Learnings
+## Key Challenges & Learnings
 
 The most challenging part was implementing the **in-place editing** functionality. I learned how to:
 
